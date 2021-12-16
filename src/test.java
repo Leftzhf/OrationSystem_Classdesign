@@ -1,4 +1,6 @@
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -14,9 +16,21 @@ public class test {
         {
             list.add(basicUtil.init(i));
         }
-        for (ProcessStructure processStructure : list) {
-            System.out.println(processStructure);
+        String s = "0:0";
+        LinkedList<ProcessStructure> srtf = new Alg().SRTF(list, s);
+        srtf.sort(new Comparator<ProcessStructure>() {
+            @Override
+            public int compare(ProcessStructure o1, ProcessStructure o2) {
+                return (int) (o1.getArriveTime().getTime() - o2.getArriveTime().getTime());
+            }
+        });
+        double avg = 0.0;
+        double size= srtf.size();
+        for (ProcessStructure structure : srtf) {
+            structure.setRoundTime(structure.getFinshTime().getTime()-structure.getArriveTime().getTime());
+            System.out.println(structure);
+            avg+=structure.getRoundTime();
         }
-
+        System.out.println("平均周转时间："+avg/size);
     }
 }

@@ -3,38 +3,6 @@ public class Time {
     private Double hour = 0.0;
     private Double minute = 0.0;
 
-    /**
-     * 计算两个时间差值（单位分钟）
-     * @param a
-     * @param b
-     * @return a-b
-     */
-    public static Double minusTime(Time a,Time b)
-    {
-        Double time = a.getTime();
-        Double time1 = b.getTime();
-        return Math.abs(time1 - time);
-    }
-
-    /**
-     * 加x分钟
-     * @param minute
-     */
-    public void addMinute(double minute)
-    {
-        if(minute>=60)
-        {
-            this.hour+=(int)(minute/60);
-            this.minute += minute%60;
-        }
-        else this.minute+=minute;
-
-        if(this.minute>=60)
-        {
-            this.minute = 0.0;
-            this.hour+=1;
-        }
-    }
 
     /**
      * 加x小时
@@ -76,7 +44,14 @@ public class Time {
 
     @Override
     public String toString() {
-        return this.hour.intValue()+":"+this.minute.intValue();
+
+        String s;
+        if(this.minute%10==this.minute)
+        {
+             s = "0"+this.minute.intValue();
+        }
+        else s = this.minute.intValue()+"";
+        return this.hour.intValue()+":"+s;
     }
     public Double getTime()
     {
@@ -110,5 +85,6 @@ public class Time {
         this.hour = hour;
         this.minute = minute;
     }
+
 
 }

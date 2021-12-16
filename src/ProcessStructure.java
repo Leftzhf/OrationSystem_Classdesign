@@ -7,13 +7,32 @@ public class ProcessStructure {
     String pattern = "HH:mm";
     private String name;//进程名
     private Time arriveTime = new Time();//到达时间
+
     private Double serveTime ;//服务时间
     private Time beginTime = new Time();//开始时间
     private Time finshTime = new Time();//结束时间
     private Double roundTime;//周转时间
     private Time waitTime = new Time();//记录每个进程到达后的等待时间，只用于最高响应比优先调度算法中
     private Integer priority;//优先级
+    private Double restTime = 0.0;//剩余时间
     private Double RR;
+    private boolean visited = false;
+
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
+
+    public Double getRestTime() {
+        return restTime;
+    }
+
+    public void setRestTime(Double restTime) {
+        this.restTime = restTime;
+    }
 
     public Double getRR() {
         return RR;
@@ -38,6 +57,7 @@ public class ProcessStructure {
       //  this.avgRoundTime = avgRoundTime;
         this.waitTime = waitTime;
         this.priority = priority;
+        this.restTime = this.serveTime;
     }
 
     public ProcessStructure(String name, Time  arriveTime,
@@ -51,23 +71,21 @@ public class ProcessStructure {
         this.roundTime = roundTime;
     //    this.avgRoundTime = avgRoundTime;
         this.waitTime = waitTime;
+        this.restTime = this.serveTime;
     }
 
 
     @Override
     public String toString() {
-        return "ProcessStructure{" +
-                "pattern='" + pattern + '\'' +
+
+        return
                 ", name='" + name + '\'' +
                 ", arriveTime=" + arriveTime +
                 ", serveTime=" + serveTime +
                 ", beginTime=" + beginTime +
                 ", finshTime=" + finshTime +
                 ", roundTime=" + roundTime +
-                ", waitTime=" + waitTime +
-                ", priority=" + priority +
-                ", RR=" + RR +
-                '}';
+                ", waitTime=" + waitTime +'\n';
     }
 
     public ProcessStructure(String name, Time  arriveTime,
@@ -75,7 +93,7 @@ public class ProcessStructure {
         this.name = name;
         this.arriveTime = arriveTime;
         this.serveTime = serveTime;
-
+        this.restTime = this.serveTime;
     }
 
     public ProcessStructure(String name, Time  arriveTime,
@@ -90,17 +108,11 @@ public class ProcessStructure {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Time  getArriveTime() {
         return arriveTime;
     }
 
-    public void setArriveTime(Time  arriveTime) {
-        this.arriveTime = arriveTime;
-    }
 
     public Double getServeTime() {
         return serveTime;

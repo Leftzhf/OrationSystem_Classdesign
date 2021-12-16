@@ -2,13 +2,13 @@ import java.util.LinkedList;
 
 public interface Dispatch {
 
-    void FcFs(LinkedList<ProcessStructure> queue,String currentTime);
+    LinkedList<ProcessStructure> FcFs(LinkedList<ProcessStructure> queue,String currentTime);
 
-    void SjF(LinkedList<ProcessStructure> queue,String currentTime);
+    LinkedList<ProcessStructure> SjF(LinkedList<ProcessStructure> queue,String currentTime);
 
-    void HrrN(LinkedList<ProcessStructure> queue,String currentTime);
+    LinkedList<ProcessStructure> HrrN(LinkedList<ProcessStructure> queue,String currentTime);
 
-    void HpF(LinkedList<ProcessStructure> queue,String currentTime);
+    LinkedList<ProcessStructure> HpF(LinkedList<ProcessStructure> queue,String currentTime);
 
-    void SRTF(LinkedList<ProcessStructure> queue,String currentTime);
+    LinkedList<ProcessStructure> SRTF(LinkedList<ProcessStructure> queue,String currentTime);
 }
