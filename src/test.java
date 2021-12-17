@@ -29,17 +29,19 @@ public class test {
             list.add(basicUtil.init(i));//进程初始化PCB
         }
         String s = "0:0";
+
+        list.sort(new Comparator<ProcessStructure>() {
+            @Override
+            public int compare(ProcessStructure o1, ProcessStructure o2) {
+                return (int) (o1.getArriveTime().getTime() - o2.getArriveTime().getTime());
+            }//根据到达时间排序队列
+        });
         switch (alg_mode)
         {
             case 1:
             {
                 LinkedList<ProcessStructure> srtf = new Alg().SRTF(list, s);//调用SRTF算法,进程加入后备队列
-                srtf.sort(new Comparator<ProcessStructure>() {
-                    @Override
-                    public int compare(ProcessStructure o1, ProcessStructure o2) {
-                        return (int) (o1.getArriveTime().getTime() - o2.getArriveTime().getTime());
-                    }//根据到达时间排序队列
-                });
+
                 double avg = 0.0;
                 double size= srtf.size();
                 for (ProcessStructure structure : srtf) {
@@ -52,12 +54,7 @@ public class test {
             }
             case 2:
             {
-                list.sort(new Comparator<ProcessStructure>() {
-                    @Override
-                    public int compare(ProcessStructure o1, ProcessStructure o2) {
-                        return (int) (o1.getArriveTime().getTime() - o2.getArriveTime().getTime());
-                    }//根据到达时间排序队列
-                });
+
                 LinkedList<ProcessStructure> sjf = new Alg().SjF(list, s);//调用SRTF算法,进程加入后备队列
                 double avg = 0.0;
                 double size= sjf.size();
@@ -69,6 +66,25 @@ public class test {
                 System.out.println("平均周转时间："+avg/size);
                 break;
             }
+            case 3:
+            {
+                break;
+            }
+            case 4:
+            {
+
+                LinkedList<ProcessStructure> hrrn = new Alg().HrrN(list, s);//调用SRTF算法,进程加入后备队列
+                double avg = 0.0;
+                double size= hrrn.size();
+                for (ProcessStructure structure : hrrn) {
+                    structure.setRoundTime(structure.getFinshTime().getTime()-structure.getArriveTime().getTime());//计算周转时间
+                    System.out.println(structure);//输出周转时间
+                    avg+=structure.getRoundTime();//计算平均周转时间
+                }
+                System.out.println("平均周转时间："+avg/size);
+                break;
+            }
+
 
         }
 

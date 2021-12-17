@@ -12,7 +12,7 @@ public class ProcessStructure {
     private Time beginTime = new Time();//开始时间
     private Time finshTime = new Time();//结束时间
     private Double roundTime;//周转时间
-    private Time waitTime = new Time();//记录每个进程到达后的等待时间，只用于最高响应比优先调度算法中
+    private Double waitTime =0.0;//记录每个进程到达后的等待时间，只用于最高响应比优先调度算法中
     private Integer priority;//优先级
     private Double restTime = 0.0;//剩余时间
     private Double RR;
@@ -47,7 +47,7 @@ public class ProcessStructure {
 
     public ProcessStructure(String name, Time  arriveTime,
                             Double serveTime, Time beginTime,
-                            Time finshTime, Double roundTime, Double avgRoundTime, Time waitTime, Integer priority) {
+                            Time finshTime, Double roundTime, Double avgRoundTime, Double waitTime, Integer priority) {
         this.name = name;
         this.arriveTime = arriveTime;
         this.serveTime = serveTime;
@@ -62,7 +62,7 @@ public class ProcessStructure {
 
     public ProcessStructure(String name, Time  arriveTime,
                             Double serveTime, Time  beginTime,
-                            Time  finshTime, Double roundTime, Time  waitTime) throws ParseException {
+                            Time  finshTime, Double roundTime, Double  waitTime) throws ParseException {
         this.name = name;
         this.arriveTime = arriveTime;
         this.serveTime = serveTime;
@@ -147,11 +147,11 @@ public class ProcessStructure {
     }
 
 
-    public Time  getWaitTime() {
+    public Double  getWaitTime() {
         return waitTime;
     }
 
-    public void setWaitTime(Time  waitTime) {
+    public void setWaitTime(Double  waitTime) {
         this.waitTime = waitTime;
     }
 
