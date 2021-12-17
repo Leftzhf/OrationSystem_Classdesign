@@ -8,8 +8,7 @@ import java.util.Scanner;
 public class  BasicUtil {
 
     Scanner scanner = new Scanner(System.in);
-    String pattern = "HH:mm";
-    String ServerTimePattern = "mm";
+    String pattern = "HH:mm";String ServerTimePattern = "mm";
 
     public  Time addTime(Time a,Time b) {
         double min = a.getMinute() + b.getMinute();

@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb7d2089-ce9d-4523-9ffa-52962ac5b7c5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/OrationSystem_Classdesign.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OrationSystem_Classdesign.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Alg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Alg.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BasicUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BasicUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dispatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dispatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProcessStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProcessStructure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Time.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +16,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="22MjE11muEcAko4vOeq2pVCju5B" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -27,6 +33,24 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="test1" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="azul-1.8" />
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <module name="OrationSystem_Classdesign" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -38,10 +62,25 @@
       <updated>1639654234513</updated>
       <workItem from="1639654236868" duration="5000" />
       <workItem from="1639654249296" duration="5000" />
+      <workItem from="1639654420906" duration="52000" />
+      <workItem from="1639654542596" duration="581000" />
+      <workItem from="1639655137148" duration="22139000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
