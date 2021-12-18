@@ -15,7 +15,7 @@ public class test {
         System.out.println("2.短作业优先算法(SJF)");
         System.out.println("3.先来先服务算法(FCFS)");
         System.out.println("4.最高响应比优先算法(HRRF)");
-        System.out.println("5.算法(SRTF)");
+        System.out.println("5.优先级调度算法(Hpf)");
         System.out.println("请选择要执行的调度算法");
         Scanner scanner = new Scanner(System.in);
         int alg_mode = scanner.nextInt();
@@ -84,7 +84,20 @@ public class test {
                 System.out.println("平均周转时间："+avg/size);
                 break;
             }
+            case 5:
+            {
+                LinkedList<ProcessStructure> Hpf = new Alg().HpF(list, s);//调用SRTF算法,进程加入后备队列
+                double avg = 0.0;
+                double size= Hpf.size();
+                for (ProcessStructure structure : Hpf) {
+                    structure.setRoundTime(structure.getFinshTime().getTime()-structure.getArriveTime().getTime());//计算周转时间
+                    System.out.println(structure);//输出周转时间
+                    avg+=structure.getRoundTime();//计算平均周转时间
+                }
+                System.out.println("平均周转时间："+avg/size);
 
+                break;
+            }
 
         }
 

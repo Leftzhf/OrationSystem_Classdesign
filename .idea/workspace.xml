@@ -4,7 +4,6 @@
     <list default="true" id="cb7d2089-ce9d-4523-9ffa-52962ac5b7c5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Alg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Alg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProcessStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProcessStructure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +62,7 @@
       <workItem from="1639654249296" duration="5000" />
       <workItem from="1639654420906" duration="52000" />
       <workItem from="1639654542596" duration="581000" />
-      <workItem from="1639655137148" duration="27194000" />
+      <workItem from="1639655137148" duration="29944000" />
     </task>
     <servers />
   </component>
@@ -85,11 +84,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Alg.java</url>
-          <line>89</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="9" />
