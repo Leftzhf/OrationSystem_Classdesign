@@ -166,7 +166,67 @@ public class Alg implements Dispatch{
 
     @Override
     public LinkedList<ProcessStructure> HpF(LinkedList<ProcessStructure> queue, String currentTime) {
+
         Time current = basicUtil.formatTime(currentTime);
+        boolean flag = false;
+        int count = queue.size();//后备队列目前的长度,有多少个进程就要执行多少次判断
+        LinkedList<ProcessStructure> ready = new LinkedList<>();//初始化就绪队列
+        ProcessStructure running = null;//CPU正在处理的进程
+        current = queue.peek().getArriveTime();//初始化当前时间设置为当前后备作业的队头的到达时间
+
+        ProcessStructure peek= queue.peek();//初始化队头
+        ready.add(peek);
+        queue.remove(peek);
+
+        while(count!=0)//调度算法
+        {
+            peek = queue.peek();//获取后备队列中的队头进程
+            //如果有进程到达了，就加入就绪队列
+            if (!queue.isEmpty() )//如果后备队列非空且当前时间大于进程到达时间（进程已经到达）
+            {
+
+                //更新等待时间
+
+                ProcessStructure min = Collections.min(ready, (o1, o2) -> (int) (o1.getPriority() - o2.getPriority()));
+                //在下一次判断到达前该进程可以放心执行（下一次判断是下一个进程到达的时候或者是当前进程结束的时候）
+                running = min;//设置为运行态
+                min.setBeginTime(current);
+                running.setVisited(true);//置访问标志位
+                current=basicUtil.addMinute(current,min.getServeTime());
+                min.setFinshTime(current);
+                res.add(min);
+                ready.remove(running);//当前进程执行结束，让出cpu
+                while(basicUtil.ifGreaterEqual(current, queue.peek().getArriveTime()))//把此时已经到达的进程都加入就绪队列以便下一次判断
+                {
+                    ready.add(queue.peek());//后备队列队头作业进程对换进入就绪队列
+                    queue.remove(queue.peek());//后备队列队头出队
+                    if(queue.peek()==null)
+                        break;
+                }
+                if (ready.size()==0)//如果此时就绪队列为空（下一个进程在当前时间之后到达）则从后备队列中加入进程并设置当前时间为到达时间
+                {
+                    peek = queue.peek();
+                    ready.add(peek);
+                    peek.setVisited(true);//置访问标志位
+                    current=peek.getArriveTime();
+                    queue.remove(peek);
+                }
+
+            } else if (queue.isEmpty())//如果目前后备队列为空（还没有作业到达）,就先选择就绪队列中的最短剩余时间进程执行,但是不从后备队列中加入
+            {
+
+                ProcessStructure min = Collections.min(ready, (o1, o2) -> (int) (o1.getPriority() - o2.getPriority()));
+                running = min;//设置为运行态
+                min.setBeginTime(current);
+                running.setVisited(true);//置访问标志位
+                current=basicUtil.addMinute(current,min.getServeTime());
+                min.setFinshTime(current);
+                min.setWaitTime(basicUtil.minusTime(min.getBeginTime(), min.getArriveTime()));
+                res.add(min);
+                ready.remove(running);//当前进程执行结束，让出cpu
+            }
+            count--;
+        }
         return res;
     }
 
